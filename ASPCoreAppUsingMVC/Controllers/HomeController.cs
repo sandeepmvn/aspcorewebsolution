@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ASPCoreAppUsingMVC.Models;
+using System.IO;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Hosting;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace ASPCoreAppUsingMVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
         {
             _logger = logger;
+            _hostEnvironment = webHostEnvironment;
         }
 
 
@@ -31,8 +37,8 @@ namespace ASPCoreAppUsingMVC.Controllers
                 FirstName = fn,
                 LastName = ln
             };
-           //return View((object)"");
-          // return View(model:"");
+            //return View((object)"");
+            // return View(model:"");
             return View(person);
         }
 
@@ -45,7 +51,47 @@ namespace ASPCoreAppUsingMVC.Controllers
         //RedirectToAction (controllerName,actionName)--- 302
         //RedirectToPermenant---  301---- OfferPage (SEO)------Offerpage1
         //ReddirectToActionPermenant----- 301
+        //200
+        //400
+        //500
+        //300--- redirection
+        public IActionResult RedirectResultExample()
+        {
+            //return Redirect("/Home/Index");
+            // return RedirectToAction("Index");
 
+            //using Querystring
+            //return Redirect("/Home/SayHello?fn=schott&ln=test");
+            //return RedirectToAction("SayHello", new { fn = "Schott", ln = "test" });
+
+            //return RedirectPermanent("/Home/Privacy");-301
+            return RedirectToActionPermanent("privacy");
+        }
+
+
+        public IActionResult RedirectToRouteExample()
+        {
+            //without querystring
+            return RedirectToRoute("PrivacyRoute");
+
+            //withquerystring
+            //return RedirectToRoute("PrivacyRoute",new { id=0});
+        }
+
+
+        public IActionResult DownloadFile()
+        {
+            var filepath = _hostEnvironment.ContentRootPath;//Directory.GetCurrentDirectory();
+            filepath = Path.Combine(filepath, "Demo", "Text1.txt");
+            return PhysicalFile(filepath, "text/txt", "test");
+        }
+        public IActionResult JsonResultExample()
+        {
+            Person p = new Person();
+            p.FirstName = "Sandeep";
+            p.LastName = "Soni";
+            return Json(p);
+        }
 
 
         public IActionResult Index()
@@ -57,6 +103,8 @@ namespace ASPCoreAppUsingMVC.Controllers
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

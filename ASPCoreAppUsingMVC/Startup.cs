@@ -48,6 +48,9 @@ namespace ASPCoreAppUsingMVC
 
             app.UseEndpoints(endpoints =>
             {
+                //url
+                endpoints.MapControllerRoute(name: "PrivacyRoute", pattern: "privacy", defaults: new { controller = "Home", action = "Privacy" });
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
