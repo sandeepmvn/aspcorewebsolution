@@ -116,5 +116,11 @@ namespace ASPCoreAppUsingMVC.Controllers
         {
             return View();
         }
+
+        [NonAction]
+        public void DoSomething()
+        {
+
+        }
     }
 }
