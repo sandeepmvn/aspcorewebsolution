@@ -7,6 +7,9 @@ namespace ASPCoreAppUsingMVC.Services
 {
     public class MyDependencyService : IMyDependencyService
     {
+        public MyDependencyService(IMyDependencyService2 myDependencyService2)
+        {
+        }
 
         int counter;
 

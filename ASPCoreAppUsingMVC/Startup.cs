@@ -26,7 +26,8 @@ namespace ASPCoreAppUsingMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<IMyDependencyService, MyDependencyService>();
+            services.AddTransient<IMyDependencyService, MyDependencyService>();
+            services.AddScoped<IMyDependencyService2, MyDependencyService2>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
