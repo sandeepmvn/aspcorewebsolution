@@ -122,5 +122,16 @@ namespace ASPCoreAppUsingMVC.Controllers
         {
 
         }
+
+
+        public IActionResult action404()
+        {
+            return View("Error");
+        }
+
+        public IActionResult action401()
+        {
+            return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
     }
 }

@@ -22,10 +22,18 @@ namespace ASPCoreAppUsingMVC.CustomMW
             _info = info
 ;
         }
-
+        /*
+         context.Request.RouteValues.TryGetValue("controller", out object controllerName);
+            logger.LogInformation(_info + " :" + controllerName);
+            var currentEndPoint = context.GetEndpoint();
+            var routes = context.Request.RouteValues;*/
         public async Task InvokeAsync(HttpContext context,ILogger<LogURLMiddleware> logger, IMyDependencyService myDependencyService)
         {
             logger.LogInformation(_info + " :" + context.Request.Path);
+            context.Request.RouteValues.TryGetValue("controller", out object controllerName);
+            logger.LogInformation("Controller Name: " + controllerName);
+            var currentEndPoint = context.GetEndpoint();
+            var routes = context.Request.RouteValues;
             // Console.WriteLine(_info + " :" + context.Request.Path);
             await _requestDelegate.Invoke(context);
         }
