@@ -66,6 +66,10 @@ namespace ASPCoreAppUsingMVC
             app.UseLogURL("Request");
             app.UseAuthorization();
 
+
+         
+
+
             //app.UseStatusCodePages(async context =>
             //{
             //  var code= context.HttpContext.Response.StatusCode;
@@ -79,7 +83,7 @@ namespace ASPCoreAppUsingMVC
             //    }
             //});
 
-            app.UseStatusCodePagesWithRedirects("/home/action{0}");
+            app.UseStatusCodePagesWithRedirects("/home/error");
 
             app.UseEndpoints(endpoints =>
             {

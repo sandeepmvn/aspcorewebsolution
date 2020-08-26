@@ -6,3 +6,99 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+@*<h1>
+    @DateTime.Now.ToShortDateString()
+</h1>
+
+@{
+    //Code block
+    var date = DateTime.Now.ToString();
+    <h2>Today's date is: @date </h2>
+    var message = "Hello World";
+    <h3>@message</h3>
+}*@
+
+
+@*@if (DateTime.IsLeapYear(DateTime.Now.Year))
+{
+    @DateTime.Now.Year @:is a leap year.
+
+    <h1>@date</h1>
+}
+else
+{
+    @DateTime.Now.Year @:is not a leap year.
+}*@
+
+
+
+@{
+    List<Person> personlst = new List<Person>()
+{
+        new Person()
+        {
+             FirstName="Schott",
+             LastName="S"
+        },
+         new Person()
+        {
+             FirstName="Name1",
+              LastName="S"
+        }
+    };
+}
+
+<table class="table table-bordered table-hover">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+
+    @foreach (var item in personlst)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+        </tr>
+    }
+
+</table>
+
+
+
+<table class="table table-bordered table-hover">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+
+
+    @for (int i = 0; i < personlst.Count; i++)
+    {
+        <tr>
+            <td>@personlst[i].FirstName</td>
+            <td>@personlst[i].LastName</td>
+        </tr>
+    }
+
+</table>
+
+
+@{ 
+    var j = 10;
+}
+@(j/2)
+
+
+
+
+
+
+
+
+
+

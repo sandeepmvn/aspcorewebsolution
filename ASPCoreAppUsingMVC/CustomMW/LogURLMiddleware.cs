@@ -46,6 +46,7 @@ namespace ASPCoreAppUsingMVC.CustomMW
         public static void UseLogURL(this IApplicationBuilder app, string info)
         {
             app.UseMiddleware<LogURLMiddleware>(info);
+            
         }
     }
 }
