@@ -2,6 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
+@*@{
+        Layout="_Layout1"
+    }*@
+@{
+    service1.IncrementCounter();
+}
+<div>
+    @service1.GetCounterValue()
+</div>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -9,28 +18,28 @@
 
 
 @*<h1>
-    @DateTime.Now.ToShortDateString()
-</h1>
+        @DateTime.Now.ToShortDateString()
+    </h1>
 
-@{
-    //Code block
-    var date = DateTime.Now.ToString();
-    <h2>Today's date is: @date </h2>
-    var message = "Hello World";
-    <h3>@message</h3>
-}*@
+    @{
+        //Code block
+        var date = DateTime.Now.ToString();
+        <h2>Today's date is: @date </h2>
+        var message = "Hello World";
+        <h3>@message</h3>
+    }*@
 
 
 @*@if (DateTime.IsLeapYear(DateTime.Now.Year))
-{
-    @DateTime.Now.Year @:is a leap year.
+    {
+        @DateTime.Now.Year @:is a leap year.
 
-    <h1>@date</h1>
-}
-else
-{
-    @DateTime.Now.Year @:is not a leap year.
-}*@
+        <h1>@date</h1>
+    }
+    else
+    {
+        @DateTime.Now.Year @:is not a leap year.
+    }*@
 
 
 
@@ -86,19 +95,104 @@ else
     }
 
 </table>
+@*
+
+    @{
+        var j = 10;
+    }
+    @(j/2)
+
+    @{
+        var domain="deccansoft";
+    }
+
+    sandeep.mvn@deccansoft.com
+
+    sandeep.mvn@domain.com
+
+    sandeep.mvn@(domain).com
 
 
-@{ 
-    var j = 10;
+    sandeep.mvn@@@(domain).com
+
+*@
+
+@**@//Razor comments
+@{
+    //C#
+    /*
+
+    */
+
 }
-@(j/2)
+
+<br />
+
+@{
+    var str = "<script>alert('Hello')</script>";
+}
+<br />
+@str
+<br />
+
+@Html.Raw(str)
+//Helper method
+
+//declaritive
+
+//imper
+
+@{
+    var imgName = "test";
+    var imgext = "png";
+}
+
+<img src="@(StaticURL)@imgName" alt="" />
+
+<img src="/test/@(imgName).@(imgext)" />
+
+@*
+    1. Utility folder
+       Helper class
+        Static Property--- StaticURL-----"/test"
+
+    2. View
+     Helper.StaticURL    *@
 
 
 
+<script id="test">
+
+</script>
+
+@section scripts{
+    <script id="test">
+
+    </script>
+}
 
 
+@section Footer{ <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - ASPCoreAppUsingMVC - From Home
+        </div>
+    </footer>}
 
 
+@*@{
+        public string SayHello()
+        {
+            return "Hello Razor Page";
+        }
+    }*@
 
 
+@functions{
+    public string SayHello()
+    {
+        return "Hello Razor Page";
+    }
+}
 
+
+@SayHello()
