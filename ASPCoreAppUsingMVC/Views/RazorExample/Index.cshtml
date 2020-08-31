@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    //Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Index</h1>
+
+
+@*@{
+        await Html.RenderPartialAsync("_RenderTable", Model);
+    }*@
+
+//Parent View
+
+@for (int i = Model.FromTable; i <= Model.ToTable; i++)
+{
+    //child View  (Wil n't have any layout)
+    await Html.RenderPartialAsync("_RenderTable", i, ViewData);
+}
+
+
+

@@ -3,4 +3,31 @@
 }
 
 
+@*@if (ViewBag.LayoutEnv == "Developement")
+    {
+
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_Layout1";
+    }*@
+
+
+@*@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment enviroment
+    @if(enviroment.EnvironmentName=="Production")
+    {
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_Layout1";
+    }*@
+
+
+@*ViewStart
+Index---
+
+
+Layout*@
 
