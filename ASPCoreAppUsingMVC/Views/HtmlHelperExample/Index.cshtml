@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<a href="/Home/Index?name" class="btn btn-info ">Click here view Home Page</a>
+
+<a href="@Url.Action("about","Home",new {i=1,j=1 })"></a>
+
+@Html.ActionLink("Click here view Home Page","about","Home",new { i=1, j=10 },new {@class= "btn btn-info" })
+
+
+
+
+
+
+

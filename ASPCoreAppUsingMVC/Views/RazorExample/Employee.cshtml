@@ -7,7 +7,12 @@
 
 <h1>Employee</h1>
 
+//dependent
+@await Html.PartialAsync("_RenderEmployee",Model)
 
-@await Html.PartialAsync("_RenderEmployee",Model) 
+
+
+// this independent Component
+@await Component.InvokeAsync("Person")
 
 
