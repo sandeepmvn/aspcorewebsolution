@@ -10,7 +10,136 @@
 
 <a href="@Url.Action("about","Home",new {i=1,j=1 })"></a>
 
-@Html.ActionLink("Click here view Home Page","about","Home",new { i=1, j=10 },new {@class= "btn btn-info" })
+@Html.ActionLink("Click here view Home Page", "about", "Home", new { i = 1, j = 10 }, new { @class = "btn btn-info" })
+
+
+<br />
+input Helper Tags
+<br />
+<br />
+Password Tag
+<br />
+<input type="password" name="txtpassword" id="txtpassword" value="Password" class="form-control" />
+@Html.Password("htmltxtpassword", "Password1", new { @class = "form-control" })
+<br />
+<br />
+Password Tag
+<br />
+<input type="text" name="txtname" id="txtname" value="Schott" placeholder="Please enter the Name" class="form-control" />
+
+@Html.TextBox("htmltxtname", "Schott", new { @class = "form-control", placeholder = "Please enter the Name" })
+<br />
+<br />
+text Area Tag
+<br />
+<textarea name="txtDescription" id="txtDescription" placeholder="Please enter the Desciption" class="form-control"></textarea>
+
+@Html.TextArea("htmltxtDescription", "jaksfas safdjksadf ajsdfas ", new { @class = "form-control", placeholder = "Please enter the Desciption" })
+
+<br />
+<br />
+
+<br />
+Hidden tag
+<br />
+To view click on f12 and check the element whether it is rendered or not
+<input type="hidden" value="" id="txtPKId" name="txtPKId" />
+
+@Html.Hidden("hmtltxtPKId", "1")
+<br />
+Label Tag
+<br />
+<label name="lbltext" id="lbltext">Text</label>
+@Html.Label("Htmllbltext", "Text", new { })
+
+<br />
+<br />
+checkbox
+<br />
+
+<input type="checkbox" name="chkActive" class="" />
+
+@Html.CheckBox("htmlchkIsActive", true, new { @class = "" })
+<br />
+Grouping with Check box
+<br />
+
+
+<br />
+<br />
+Form Helpers
+<br />
+
+<form action="controller/action" method="post">
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+<br />
+@using (Html.BeginForm())
+{
+    @:Name:
+    @Html.TextBox("txtName")
+    <input type="submit" value="Submit" />
+}
+
+<br />
+
+<br />
+DropDown
+<br />
+
+
+<select name="dpemployess" id="dpemployees" class="form-control">
+    <option selected disabled>Select EmployeeName</option>
+    <option value="1">Name1</option>
+    <option value="2">Name2</option>
+    <option value="3">Name3</option>
+</select>
+
+@Html.DropDownList("htmldpemployees", new List<SelectListItem>
+{
+    new SelectListItem()
+    {
+         Disabled=true,
+         Selected=true,
+         Text="Select EmployeeName",
+    },
+
+    new SelectListItem()
+    {
+        Value="1",
+        Text="Name1"
+    },
+    new SelectListItem()
+    {
+        Value="2",
+        Text="Name2"
+    },
+    new SelectListItem()
+    {
+        Value="3",
+        Text="Name3"
+    }
+
+}, new { @class = "form-control" });
+
+<br />
+List Box Tag
+<br />
+
+@Html.ListBox("LST1", new List<SelectListItem> {
+                    new SelectListItem() {Text="Item1", Value="1"},
+                    new SelectListItem() {Text="Item2", Value="2",Selected=true},
+                    new SelectListItem() {Text="Item3", Value="3"},
+                    new SelectListItem() {Text="Item4", Value="4"}
+                    })
+
+<br />
+
+
+
 
 
 
