@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "EmployeeExample";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.Label("lblEmployeeId", "EmployeeId", new { @for = "Id" })
+    @Html.TextBox("Id")
+
+    <br />
+    @Html.Label("DeptId", "Department: ");
+    @Html.DropDownList("DeptId","Select Department")
+
+    <input type="submit" value="Submit"/>
+}
+
+
+

@@ -92,7 +92,7 @@ namespace ASPCoreAppUsingMVC
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=HtmlHelperExample}/{action=Index}/{id?}");
+                    pattern: "{controller=HtmlHelperExample}/{action=EmployeeExample}/{id?}");
             });
         }
     }

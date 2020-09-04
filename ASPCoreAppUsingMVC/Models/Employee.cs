@@ -14,6 +14,13 @@ namespace ASPCoreAppUsingMVC.Models
     }
 
 
+    public class Department
+    {
+        public string DeptName { get; set; }
+        public int DeptId { get; set; }
+    }
+
+
 
     //public class EmpDto
     //{

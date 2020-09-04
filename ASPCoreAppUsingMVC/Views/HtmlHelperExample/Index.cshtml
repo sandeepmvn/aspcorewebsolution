@@ -64,9 +64,22 @@ checkbox
 Grouping with Check box
 <br />
 
+<label>Hobbies</label>
+<br />
+@Html.CheckBox("chkHobbies", new { value = "cricket", id = "cricket" }) @Html.Label("lblcricket", "Cricket", new { @for = "cricket" })
+@Html.CheckBox("chkHobbies", new { value = "chess" })<label>Chess</label>
+@Html.CheckBox("chkHobbies", new { value = "hockey" })<label>Hockey</label>
+<br />
+<br />
+Radio buttons
+<br />
+<label>Gender</label>
+<br />
+@Html.RadioButton("rdnGender", "Male",new { id="rdnMale"})<label for="rdnMale">Male</label>
+@Html.RadioButton("rdnGender", "Female", new { id = "rdnFemale" })<label for="rdnFemale">Female</label>
+<br />
+<br />
 
-<br />
-<br />
 Form Helpers
 <br />
 
