@@ -1,19 +1,66 @@
-﻿
+﻿@model Employee
 @{
     ViewData["Title"] = "EmployeeExample";
+    //var depts = new List<Department>() { new Department()
+    //{
+    //    DeptId=1,
+    //    DeptName="D1"
+    //} };
 }
+
+@*@using (Html.BeginForm())
+    {
+        @Html.Label("lblEmployeeId", "EmployeeId", new { @for = "Id" })
+        @Html.TextBox("Id")
+        @Html.TextBox("EmpId")
+        <br />
+        @Html.Label("DeptId", "Department: ");
+        @Html.DropDownList("DeptId", "Select Department")
+
+        <input type="submit" value="Submit" />
+    }*@
+
+
 
 @using (Html.BeginForm())
 {
-    @Html.Label("lblEmployeeId", "EmployeeId", new { @for = "Id" })
-    @Html.TextBox("Id")
 
-    <br />
-    @Html.Label("DeptId", "Department: ");
-    @Html.DropDownList("DeptId","Select Department")
+    @*@Html.LabelFor(p => p.EmpId)
+    @Html.TextBoxFor(x => x.EmpId, new { @class = "form-control" })
 
-    <input type="submit" value="Submit"/>
+
+    @Html.LabelFor(e => e.EmpName)
+    @Html.TextAreaFor(e => e.EmpName)*@
+
+
+    @*<select>
+            <option>Select Employee Type</option>
+            <option value="1">Trainee</option>
+            <option value="2">Junior</option>
+            <option value="1">Senior</option>
+        </select>*@
+
+
+    @*@Html.DropDownList("Type", Html.GetEnumSelectList(typeof(EmployeeType)), "Select EmployeeType",new {@class="form-control" })
+
+        @Html.DropDownListFor(x=>x.Type, Html.GetEnumSelectList(typeof(EmployeeType)), "Select EmployeeType", new {@class="form-control" })*@
+
+
+    @*@Html.DropDownListFor(x => x.DeptName, ViewData["DeptId"] as SelectList, "Select DepartmentName", new { @class = "form-control" })*@
+
+    @*<select>
+        @foreach (var item in depts)
+        {
+            <option value="@item.DeptId" selected="@(Model.DeptName==item.DeptName?"Selected":"")">@item.DeptName.</option>
+        }
+    </select>*@
+
+
+    @Html.EditorFor(x=>x.EmpId)
+
+    @Html.EditorFor(x=>x.EmpName)
+
+
 }
-
 
 

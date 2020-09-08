@@ -34,19 +34,28 @@ namespace ASPCoreAppUsingMVC.Controllers
         public IActionResult EmployeeExample()
         {
 
-            ViewData["Id"] = 1;
+            //ViewData["Id"] = 1;
             //ViewData["Name"] = "E1";
             //ViewData["Salary"] = 10000;
             //ViewData["IsActive"] = true;
             //ViewData["DeptId"] = 2;
             //ViewData["DateOfJoin"] = DateTime.Now;
             //ViewData["EmailAddress"] = "test@test.com";
+
+            Employee emp = new Employee()
+            {
+                EmpId = 1,
+                EmpName = "Schott",
+                Salary = 25000,
+                DeptName="D2"
+            };
+
             List<Department> depts = new List<Department>();
-            depts.Add(new Department() { DeptName = "D1", DeptId = 11 });
-            depts.Add(new Department() { DeptName = "D2", DeptId = 212 });
-            SelectList items = new SelectList(depts, "DeptName", "DeptName", "D2");
+            depts.Add(new Department() { DeptName = "D1", DeptId = 1 });
+            depts.Add(new Department() { DeptName = "D2", DeptId = 2 });
+            SelectList items = new SelectList(depts, "DeptId", "DeptId");
             ViewData["DeptId"] = items;
-            return View();
+            return View(emp);
         }
 
         [HttpPost]
@@ -54,5 +63,11 @@ namespace ASPCoreAppUsingMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult EmployeeTest()
+        {
+            return View();
+        }
+
     }
 }
