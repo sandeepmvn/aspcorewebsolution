@@ -47,7 +47,8 @@ namespace ASPCoreAppUsingMVC.Controllers
                 EmpId = 1,
                 EmpName = "Schott",
                 Salary = 25000,
-                DeptName="D2"
+                DeptName="D2",
+                EmpEmailAddress="test@gmail.com"
             };
 
             List<Department> depts = new List<Department>();

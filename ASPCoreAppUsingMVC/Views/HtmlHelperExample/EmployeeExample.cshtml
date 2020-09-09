@@ -8,6 +8,7 @@
     //} };
 }
 
+
 @*@using (Html.BeginForm())
     {
         @Html.Label("lblEmployeeId", "EmployeeId", new { @for = "Id" })
@@ -26,11 +27,11 @@
 {
 
     @*@Html.LabelFor(p => p.EmpId)
-    @Html.TextBoxFor(x => x.EmpId, new { @class = "form-control" })
+        @Html.TextBoxFor(x => x.EmpId, new { @class = "form-control" })
 
 
-    @Html.LabelFor(e => e.EmpName)
-    @Html.TextAreaFor(e => e.EmpName)*@
+        @Html.LabelFor(e => e.EmpName)
+        @Html.TextAreaFor(e => e.EmpName)*@
 
 
     @*<select>
@@ -49,18 +50,56 @@
     @*@Html.DropDownListFor(x => x.DeptName, ViewData["DeptId"] as SelectList, "Select DepartmentName", new { @class = "form-control" })*@
 
     @*<select>
-        @foreach (var item in depts)
-        {
-            <option value="@item.DeptId" selected="@(Model.DeptName==item.DeptName?"Selected":"")">@item.DeptName.</option>
-        }
-    </select>*@
+            @foreach (var item in depts)
+            {
+                <option value="@item.DeptId" selected="@(Model.DeptName==item.DeptName?"Selected":"")">@item.DeptName.</option>
+            }
+        </select>*@
+
+    <label>Loosely Coupled Textbox</label>
+    @Html.TextBox("EmpId",new { @class="form-control"})
+    //input tage with Textbox
+    <br />
+    <label>Strongly Coupled Textbox</label>
+    @Html.TextBoxFor(x => x.EmpId)
+    //input tage with Textbox (in the modal what ever the value that is binded) type="text"
+    <br />
+    <label>Editor for Textbox</label>
+    @Html.EditorFor(x => x.EmpId)
+    //input type="number"
+    <br />
+    <label>Display for Textbox</label>
+    @Html.DisplayFor(x => x.EmpId)
 
 
-    @Html.EditorFor(x=>x.EmpId)
+    <br />
+    @Html.EditorFor(x => x.EmpName)
+    //input type="Password"
 
-    @Html.EditorFor(x=>x.EmpName)
+    <br />
 
+    @Html.EditorFor(x => x.EmpEmailAddress)
 
+    <br />
+
+    @Html.DisplayFor(x => x.EmpEmailAddress)
+    <br />
+    <label>Extension Methods Example</label>
+
+    @Html.FormatToCurrency(2500000)
+    <br />
+
+    <img alt="This is sample Image" src="" />
+    <br />
+    @*@Html.Raw(Html.Image("this is htmlhelper image", ""))*@
+    @*@Html.Image("this is htmlhelper image","")*@
+
+    @*@Html.Image("this is htmlhelper image", "")*@
+    <br/>
+    @Html.DisplayFor(x=>x)
+
+    <br/>
+    @Html.EditorFor(x=>x)
 }
 
 
