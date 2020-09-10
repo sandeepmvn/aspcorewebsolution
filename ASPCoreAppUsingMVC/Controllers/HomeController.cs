@@ -112,7 +112,7 @@ namespace ASPCoreAppUsingMVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult About()
+        public IActionResult About(string fname="",string lname="",int id1=0)
         {
             return View();
         }

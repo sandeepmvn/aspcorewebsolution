@@ -17,16 +17,17 @@ namespace ASPCoreAppUsingMVC
         }
 
 
-        //public static IHtmlContent Image(this IHtmlHelper htmlHelper, string alt, string src)
-        //{
-        //    IHtmlContentBuilder htmlContentBuilder=new HtmlContentBuilder()
-        //    //System.Web.Mvc.TagBuilder tagBuilder = new System.Web.Mvc.TagBuilder("img");
-        //    //tagBuilder.MergeAttribute("alt", alt);
-        //    //tagBuilder.MergeAttribute("src", src);
-
-        //    //return System.Web.Mvc.MvcHtmlString.Create(tagBuilder.ToString(System.Web.Mvc.TagRenderMode.SelfClosing));
-        //    //&lt;img alt=&#x27;this is htmlhelper image&#x27; src=&#x27;&#x27;
-        //    return HttpUtility.HtmlEncode($"<img alt='{alt}' src='{src}'   />");
-        //}
+        public static IHtmlContent Image(this IHtmlHelper htmlHelper, string alt, string src)
+        {
+            //IHtmlContentBuilder htmlContentBuilder = new HtmlContentBuilder()
+            TagBuilder tagBuilder = new TagBuilder("img");
+            tagBuilder.MergeAttribute("alt", alt);
+            tagBuilder.MergeAttribute("src", src);
+            tagBuilder.TagRenderMode = TagRenderMode.SelfClosing;
+            return new HtmlString(tagBuilder.ToString());
+            //return System.Web.Mvc.MvcHtmlString.Create(tagBuilder.ToString(System.Web.Mvc.TagRenderMode.SelfClosing));
+            //&lt; img alt = &#x27;this is htmlhelper image&#x27; src=&#x27;&#x27;
+            //return HttpUtility.HtmlEncode($"<img alt='{alt}' src='{src}'   />");
+        }
     }
 }
