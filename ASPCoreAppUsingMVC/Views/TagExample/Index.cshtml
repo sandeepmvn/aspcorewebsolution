@@ -5,38 +5,85 @@
 
 <h1>Tag Helpers</h1>
 
-<h1>Label Tag Helper</h1>
+@*<h1>Label Tag Helper</h1>
 
-<label class="col-form-label" asp-for="EmpId"></label>
+    <label class="col-form-label" asp-for="EmpId"></label>
 
-<!label class="" asp-for="EmpId"></!label>
+    <!label class="" asp-for="EmpId"></!label>
 
-<input type="text" asp-for="EmpId" class="form-control" />
+    <input type="text" asp-for="EmpId" class="form-control" />
 
 
-<h3>a link</h3>
+    <h3>a link</h3>*@
 
 @*@Html.ActionLink("", "action", "controller", new {id=0,empname="" })*@
 
-<a asp-action="about" asp-controller="Home" asp-route-fname="schott" asp-route-lname="M">Click here to redirect About View</a>
-<br />
-<a asp-host="microsoft.com" asp-fragment="top">Click here to redirect Micrsoft.com</a>
-<br />
-@{ 
-    var dataparams= new Dictionary<string, string>();
-    dataparams.Add("fname", "schott");
-    dataparams.Add("lname", "M");
-    dataparams.Add("id1", "12");
+@*<a asp-action="about" asp-controller="Home" asp-route-fname="schott" asp-route-lname="M">Click here to redirect About View</a>
+    <br />
+    <a asp-host="microsoft.com" asp-fragment="top">Click here to redirect Micrsoft.com</a>
+    <br />
+    @{
+        var dataparams= new Dictionary<string, string>();
+        dataparams.Add("fname", "schott");
+        dataparams.Add("lname", "M");
+        dataparams.Add("id1", "12");
+    }
+    <a asp-action="about" asp-controller="Home" asp-all-route-data="dataparams">Click here to redirect About View</a>
+
+    <br/>
+    <h4>Image Tag Helpers</h4>
+
+    <img src="/images/HomePage24yrs.jpg" alt="Bestdotnettraining"
+         asp-append-version="true" />*@
+
+@*<form action="" method="" enctype=""></form>
+
+    @using (Html.BeginForm("","",FormMethod.Get,new { }))
+    {
+
+    }*@
+
+<form asp-action="Index" asp-controller="TagExample" method="post" asp-antiforgery="true">
+
+    <label asp-for="EmpName" class=""></label>
+    <input asp-for="EmpName" type="text" class="form-control" />
+    <span asp-validation-for="EmpName" class="text-danger"></span>
+    <br />
+    <select>
+        <option>select Employess</option>
+        <option value="1" selected>Schott</option>
+        <option value="2">Sam</option>
+    </select>
+    <br />
+    @*@{
+            var emps = new List<SelectListItem>
+            {
+                 new SelectListItem()
+                 {
+                      Value="1",
+                      Text="Schott",
+                      Selected=true
+                 },
+                 new SelectListItem()
+                 {
+                      Value="2",
+                      Text="sam",
+                 },
+            };
+        }*@
+
+    <select asp-for="DeptName" asp-items="Model.Departments">
+        <option disabled>Select Depatments</option>
+    </select>
+    <textarea asp-for="Description" rows="10" cols="10"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<a asp-action="about" asp-controller="Home" asp-all-route-data="dataparams">Click here to redirect About View</a>
-
-<br/>
-<h4>Image Tag Helpers</h4>
-
-<img src="/images/HomePage24yrs.jpg" alt="Bestdotnettraining"
-     asp-append-version="true" />
-
-
-
 
 
