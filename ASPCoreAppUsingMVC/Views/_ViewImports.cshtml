@@ -4,6 +4,10 @@
 @inherits CustomRazorPage<TModel>
 @using ASPCoreAppUsingMVC.Services
 @inject IMyDependencyService service1
+@*@addTagHelper ASPCoreAppUsingMVC.CustomTagHelpers.AppreciateTagHelper,ASPCoreAppUsingMVC
+@addTagHelper ASPCoreAppUsingMVC.CustomTagHelpers.EmailTagHelper,ASPCoreAppUsingMVC*@
+
+@addTagHelper *,ASPCoreAppUsingMVC
 
 
 

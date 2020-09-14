@@ -80,8 +80,21 @@
     <button type="submit">Submit</button>
 </form>
 
+@*@Html.PartialAsync("",)
+    <partial name="" asp-for=""></partial>*@
+<br />
+<appreciated person-name-for-appreciation="Sam"></appreciated>
+@*<p>
+    <a href="mailto:support@xyz.com">support@xyz.com</a>
 
+</p>*@
 
+<email email-to="Support"></email>
+<email email-to="sandeep.mvn"></email>
+<email email-to="Schott"></email>
+
+<br />
+<br />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
