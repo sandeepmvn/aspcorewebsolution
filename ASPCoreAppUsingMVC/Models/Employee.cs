@@ -22,6 +22,10 @@ namespace ASPCoreAppUsingMVC.Models
         public EmployeeType Type { get; set; }
 
         public List<SelectListItem> Departments { get; set; }
+
+        public Address ResAddress { get; set; }
+
+        public Address OffAddress { get; set; }
     }
 
     public class Department
@@ -36,6 +40,15 @@ namespace ASPCoreAppUsingMVC.Models
         Trainee = 1,
         Junior = 2,
         Senior = 3
+    }
+
+
+    public class Address
+    {
+        public string Street
+        { get; set; }
+        public string City { get; set; }
+
     }
 
 

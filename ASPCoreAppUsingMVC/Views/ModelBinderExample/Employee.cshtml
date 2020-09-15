@@ -1,0 +1,24 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<h1>Employee</h1>
+
+@using (Html.BeginForm("Employee", "ModelBinderExample",FormMethod.Post))
+{
+
+    <input type="text" asp-for="ResAddress.City" placeholder="ResAddress- City" class="form-control" />
+
+    <input type="text" asp-for="ResAddress.Street" placeholder="ResAddress- Street" class="form-control" />
+
+    <input type="text" asp-for="OffAddress.Street" placeholder="OffAddress- Street" class="form-control" />
+
+    <input type="text" asp-for="OffAddress.City" placeholder="OffAddress- City" class="form-control" />
+    <input type="submit" name="btnSubmit" value="Submit"  class="btn btn-info"/>
+}
+
+
+
+
+

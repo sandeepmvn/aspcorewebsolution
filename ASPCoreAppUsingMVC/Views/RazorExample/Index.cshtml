@@ -12,12 +12,8 @@
     }*@
 
 //Parent View
-
 @for (int i = Model.FromTable; i <= Model.ToTable; i++)
 {
     //child View  (Wil n't have any layout)
     await Html.RenderPartialAsync("_RenderTable", i, ViewData);
 }
-
-
-

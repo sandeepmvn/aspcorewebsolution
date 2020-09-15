@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <input type="text" name="name" value=" " /><br />
+        <input type="checkbox" name="hobbies" value="Football" /><span>Football</span><br />
+        <input type="checkbox" name="hobbies" value="Cricket" /><span>Cricket</span><br />
+        <input type="checkbox" name="hobbies" value="Table Tennis" /><span>Table Tennis</span><br />
+        <input type="checkbox" name="hobbies" value="Badminton" /><span>Badminton</span><br />
+        <input type="submit" name="btnSubmit" value="Submit" />
+    }
+</div>
+
+<div class="row">
+    @Model
+</div>
