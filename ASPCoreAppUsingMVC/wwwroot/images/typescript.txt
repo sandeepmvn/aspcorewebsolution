@@ -263,10 +263,6 @@ let bar = "bar2"; // SyntaxError: Identifier 'bar' has already been declared
 
 
 
-curl -v​ https://api.sandbox.paypal.com/v1/oauth2/token \ -H "Accept: application/json" \ -H "Accept-Language: en_US" \ -u "AYJNWrAivCTDqLr8g11 AaolFk_hzy900zz5UxjD8Ur7pnDEt7fz2nEiT-Gpsc_2WRugGxnwvsg5SuG1:EHVn2_Hf0Mou7pcwSMnfcEpgTmFnYXb2xCrAHheQDHQHgmUxDHoVb5C3vUWhmJlKU2eX3FmH5LsbQqH7" -d "grant_type=client_credentials"
-
-
-
 
 
 
