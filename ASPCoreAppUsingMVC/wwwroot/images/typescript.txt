@@ -1,0 +1,277 @@
+lack of type checking
+ restriction towards variable
+Example 
+var a;
+a=10;
+a="Hello";
+not only towards the permitive datatypes
+a={};
+
+
+not only these, function
+
+function add(a,b){return a+b;}
+add();
+add(1,2,3);
+still it excutes
+
+
+
+
+
+
+let see the object structure
+var person={"firstName":"sandeep"}
+there is no restriction towards object
+it is loosely coupled
+
+--------------------------------
+Application Complexity
+
+  why we need javascript?
+     Browser friendly (dynmaically we are able to manipulate the DOM)
+
+-----------------------------
+Compilation
+ 
+How TypeScript works?
+
+Typescript+transpilation /Compilation----------> JS------------------>Browser (deploy at cross the browser)
+  Devlopment Time                                      Runtime
+
+
+Node Js---- Runtime understanards the only  Javascript
+
+here we need typescript compiler
+
+
+
+TypeScript vs javascript
+
+1. Typescript is nothing but Javascript + types (declaration,TypeChecking)
+2. it is super set of Javascript
+3. we can add all features of javascript
+
+
+Javascript is continous involving
+
+let -----> which solves the problem of scoping (variable declaration)
+arrow function (like lymda function in C#)
+ 
+which supports only new browser
+
+
+Typescript will take care of browser inpendnent syntax------------> classic old ecma script 5
+
+. makes building these complex apps more manageable
+
+. frameworks like angular is using more
+
+.react is one more community , where we can use the type scripts
+
+IDE -------------> Visual studio code
+we can need to install node jS, (node js is platfrom  to complier the code from typescript to Js)
+
+
+npm install typescript --g (golbally)
+
+even we don't need these because if we are installing angular cli
+which is going to take care of all these stuff
+
+------------------------------------------------
+
+just create 
+
+declartion of variable
+
+//primitive datatypes
+
+1. number
+2. boolean
+3. string
+4. undefined
+
+var foo:undefined;
+
+arrays:0
+
+var myarrys=[1,2,3]
+
+here number of elements should be a number 
+
+var myarr: number[];
+
+int[] arr=new int[]
+
+myarr=[];
+myarr=[1,2,3]
+
+myarr=1;
+
+myarr.push(
+
+
+
+var myarr:[number,boolean]={1,false}
+
+
+how it will error in type script
+whole script transpile the issue mostly in develpoment time only
+
+typescript feature will exist only in develpoment time only
+
+-------------------
+
+function typing
+
+----------------------
+
+implict  typing
+
+ var a=10 (Implict typing);
+var b=true;
+var c="Hello";
+
+
+a=false;
+
+
+implict functions
+
+var greeting;
+greetings=f
+---------------------
+any type
+var a;
+it is th feature is used for migrating the javascript to typescript
+
+really strict
+
+var a: any;
+or 
+var a;
+(don't do any typeschecking)
+
+a=10;
+a=true;
+a="string";
+it is too loosely typed
+--------------------------
+union type
+if variable what to take two types
+
+var a: number| boolean;
+a=10;
+a=true;
+it is another way of loosely typed
+-----------------------------------------------------------
+
+Typesctipt Classes and interfaces(OOPS)
+How do you create im typescript
+
+class Person{
+//Class defination ( hOw we declare the clsss in another 
+
+firstname
+lastnname;
+}
+
+var person =new person();
+// it
+
+
+person. firstname
+
+-----------------------------------
+
+Scoping rules
+Main difference is scoping rules. Variables declared by var keyword are scoped to the immediate function body (hence the function scope) while let variables are scoped to the immediate enclosing block denoted by { } (hence the block scope).
+
+function run() {
+  var foo = "Foo";
+  let bar = "Bar";
+
+  console.log(foo, bar);
+
+  {
+    let baz = "Bazz";
+    console.log(baz);
+  }
+
+  console.log(baz); // ReferenceError
+}
+
+run();
+The reason why let keyword was introduced to the language was function scope is confusing and was one of the main sources of bugs in JavaScript.
+
+Take a look at this example from another stackoverflow question:
+
+var funcs = [];
+// let's create 3 functions
+for (var i = 0; i < 3; i++) {
+  // and store them in funcs
+  funcs[i] = function() {
+    // each should log its value.
+    console.log("My value: " + i);
+  };
+}
+for (var j = 0; j < 3; j++) {
+  // and now let's run each one to see
+  funcs[j]();
+}
+My value: 3 was output to console each time funcs[j](); was invoked since anonymous functions were bound to the same variable.
+
+People had to create immediately invoked functions to capture correct value from the loops but that was also hairy.
+
+Hoisting
+While variables declared with var keyword are hoisted (initialized with undefined before the code is run) which means they are accessible in their enclosing scope even before they are declared:
+
+function run() {
+  console.log(foo); // undefined
+  var foo = "Foo";
+  console.log(foo); // Foo
+}
+
+run();
+let variables are not initialized until their definition is evaluated. Accessing them before the initialization results in a ReferenceError. Variable said to be in "temporal dead zone" from the start of the block until the initialization is processed.
+
+function checkHoisting() {
+  console.log(foo); // ReferenceError
+  let foo = "Foo";
+  console.log(foo); // Foo
+}
+
+checkHoisting();
+Creating global object property
+At the top level, let, unlike var, does not create a property on the global object:
+
+var foo = "Foo";  // globally scoped
+let bar = "Bar"; // globally scoped
+
+console.log(window.foo); // Foo
+console.log(window.bar); // undefined
+Redeclaration
+In strict mode, var will let you re-declare the same variable in the same scope while let raises a SyntaxError.
+
+'use strict';
+var foo = "foo1";
+var foo = "foo2"; // No problem, 'foo' is replaced.
+
+let bar = "bar1";
+let bar = "bar2"; // SyntaxError: Identifier 'bar' has already been declared
+
+
+
+
+curl -v​ https://api.sandbox.paypal.com/v1/oauth2/token \ -H "Accept: application/json" \ -H "Accept-Language: en_US" \ -u "AYJNWrAivCTDqLr8g11 AaolFk_hzy900zz5UxjD8Ur7pnDEt7fz2nEiT-Gpsc_2WRugGxnwvsg5SuG1:EHVn2_Hf0Mou7pcwSMnfcEpgTmFnYXb2xCrAHheQDHQHgmUxDHoVb5C3vUWhmJlKU2eX3FmH5LsbQqH7" -d "grant_type=client_credentials"
+
+
+
+
+
+
+
+
+
+
+
