@@ -27,6 +27,7 @@ namespace ASPCoreAppUsingMVC
            return hostbuilder.ConfigureWebHostDefaults(webBuilder =>
             {
                 webBuilder.UseStartup<Startup>();
+                //UseEnvironment("Development")
             });
                 
         }
