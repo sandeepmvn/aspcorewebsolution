@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<form action="/StateManagementExamples/Index" method="post">
+
+    <input class="form-control" name="cookieName" placeholder="Cookie Name" />
+    <input class="form-control" name="cookievalue" placeholder="Cookie Value" />
+    <br />
+    <label for="chkIsPresistent">Is Presistent</label>
+    <input type="checkbox" value="true" name="chkIsPresistent" id="chkIsPresistent" />
+    <button type="submit" name="btnSubmit">Add</button>
+    <button type="submit" name="btnReadCookies">Get All</button>
+    <button type="submit" name="btnGet"> Get Cookie Value</button>
+    <button type="submit" name="btnDelete">Delete Cookie by Name</button>
+</form>
+<br/>
+@ViewBag.CookieData
