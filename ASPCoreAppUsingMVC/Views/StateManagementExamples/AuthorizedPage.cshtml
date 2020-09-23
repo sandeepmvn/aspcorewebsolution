@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "AuthorizedPage";
+}
+
+@if (ViewBag.IsAuthorized)
+{
+    <h1>Welcome @ViewBag.LoggedUserName</h1>
+    <a asp-action="LogOut" asp-controller="StateManagementExamples">Logout</a>
+}
+else
+{
+    <a asp-action="Login" asp-controller="StateManagementExamples">Login</a>
+}
+
+
+

@@ -30,6 +30,7 @@ namespace ASPCoreAppUsingMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSession();
             services.AddTransient<IMyDependencyService, MyDependencyService>();
             services.AddScoped<IMyDependencyService2, MyDependencyService2>();
             services.Configure<ConfigSettingData>(Configuration);
@@ -61,8 +62,9 @@ namespace ASPCoreAppUsingMVC
             //{
             //    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "demo")),
             //});
-           //Metadata of routing
-           //it provides you best match of routing
+            //Metadata of routing
+            //it provides you best match of routing
+            app.UseSession();
             app.UseRouting();
             //app.UseLogURL("Request");
             app.UseAuthorization();

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "SessionExampleIndex";
+}
+
+<h1>Session has set</h1>
+
+<a asp-action="RetriveSessions">Retrive all session values</a>
+
+<a asp-action="ClearSession">Clear all</a>
+
+<form asp-action="RemoveSessionExample">
+    <input type="text" name="key" />
+    <input type="submit" value="Clear Session by key" />
+</form>
+
