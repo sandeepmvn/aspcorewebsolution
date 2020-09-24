@@ -29,7 +29,7 @@ namespace ASPCoreAppUsingMVC
         //IService Collection ---- DI Container
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddSessionStateTempDataProvider();
             services.AddSession();
             services.AddTransient<IMyDependencyService, MyDependencyService>();
             services.AddScoped<IMyDependencyService2, MyDependencyService2>();

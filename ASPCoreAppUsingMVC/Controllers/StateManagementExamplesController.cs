@@ -115,7 +115,7 @@ namespace ASPCoreAppUsingMVC.Controllers
         [HttpPost]
         public IActionResult RemoveSessionExample(string key)
         {
-            HttpContext.Session.Remove(key);
+            HttpContext.Session.Remove("c1");
             return Content($"session {key} is removed");
         }
 
@@ -123,6 +123,30 @@ namespace ASPCoreAppUsingMVC.Controllers
         {
             HttpContext.Session.Clear();
             return Content("All Session has cleared");
+        }
+
+
+        public IActionResult AboutUs()
+        {
+            ViewBag.FirstName = "Schott";//primitive/collection/Complex data objects
+            ViewData["LastName"] = "V";//primitive/collection/Complex data objects
+            TempData["Age"] = 15;//primtive/Collections/complex data objects
+            TempData["Employess"] = new List<UserProfile> { new UserProfile() { }, new UserProfile() { } };
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            int age = (int)TempData["Age"];
+            TempData.Keep();
+            return View();
+        }
+
+
+        public IActionResult Example1()
+        {
+            int age = (int)TempData["Age"];
+            return Content(age.ToString());
         }
 
     }

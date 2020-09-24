@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "AboutUs";
+}
+
+<h1>AboutUs</h1>
+
+
+@{ 
+    string firstName = ViewBag.FirstName;
+    string lastName = ViewData["LastName"].ToString();
+    //int age = (int)TempData["Age"];
+    //TempData.Keep();
+}
+
+
+<h1>@firstName @lastName</h1>
+
+
+<a asp-action="Privacy">go to Privacy Page</a>
+
+
+
+
+
+
+
+
