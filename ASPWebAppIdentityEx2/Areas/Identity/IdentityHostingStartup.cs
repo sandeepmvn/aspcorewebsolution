@@ -1,5 +1,6 @@
 ﻿using System;
 using ASPWebAppIdentityEx2.Data;
+using ASPWebAppIdentityEx2.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -19,8 +20,12 @@ namespace ASPWebAppIdentityEx2.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("ASPWebAppIdentityEx2ContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<DemoUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ASPWebAppIdentityEx2Context>();
+                //services.Configure<IdentityOptions>(options =>
+                //{
+                //      options.
+                //});
             });
         }
     }

@@ -4,14 +4,16 @@ using ASPWebAppIdentityEx2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASPWebAppIdentityEx2.Migrations
 {
     [DbContext(typeof(ASPWebAppIdentityEx2Context))]
-    partial class ASPWebAppIdentityEx2ContextModelSnapshot : ModelSnapshot
+    [Migration("20201001024031_added_new_columns_identityUsers")]
+    partial class added_new_columns_identityUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace ASPWebAppIdentityEx2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ASPWebAppIdentityEx2.Models.IdentityUser", b =>
+            modelBuilder.Entity("ASPWebAppIdentityEx2.Models.DemoUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -237,7 +239,7 @@ namespace ASPWebAppIdentityEx2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ASPWebAppIdentityEx2.Models.IdentityUser", null)
+                    b.HasOne("ASPWebAppIdentityEx2.Models.DemoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -246,7 +248,7 @@ namespace ASPWebAppIdentityEx2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ASPWebAppIdentityEx2.Models.IdentityUser", null)
+                    b.HasOne("ASPWebAppIdentityEx2.Models.DemoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -261,7 +263,7 @@ namespace ASPWebAppIdentityEx2.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ASPWebAppIdentityEx2.Models.IdentityUser", null)
+                    b.HasOne("ASPWebAppIdentityEx2.Models.DemoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -270,7 +272,7 @@ namespace ASPWebAppIdentityEx2.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ASPWebAppIdentityEx2.Models.IdentityUser", null)
+                    b.HasOne("ASPWebAppIdentityEx2.Models.DemoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

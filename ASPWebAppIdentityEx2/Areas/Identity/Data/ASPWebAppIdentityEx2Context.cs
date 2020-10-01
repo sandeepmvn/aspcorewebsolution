@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ASPWebAppIdentityEx2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPWebAppIdentityEx2.Data
 {
-    public class ASPWebAppIdentityEx2Context : IdentityDbContext<IdentityUser>
+    public class ASPWebAppIdentityEx2Context : IdentityDbContext<DemoUser>
     {
         public ASPWebAppIdentityEx2Context(DbContextOptions<ASPWebAppIdentityEx2Context> options)
             : base(options)
