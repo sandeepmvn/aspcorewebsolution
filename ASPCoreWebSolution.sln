@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultCoreApplication", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVCAPP", "WebMVCAPP\WebMVCAPP.csproj", "{F4CB965C-6242-46D0-B852-95560A7FA100}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPCoreWebAPPIdentityEx", "ASPCoreWebAPPIdentityEx\ASPCoreWebAPPIdentityEx.csproj", "{B31917C9-B4FF-41E4-8DA8-D686C0DB4D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPCoreWebAPPIdentityEx", "ASPCoreWebAPPIdentityEx\ASPCoreWebAPPIdentityEx.csproj", "{B31917C9-B4FF-41E4-8DA8-D686C0DB4D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPWebAppIdentityEx2", "ASPWebAppIdentityEx2\ASPWebAppIdentityEx2.csproj", "{6C94D884-2F6D-41C7-9837-E11F74EE21AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPWebAppIdentityEx2", "ASPWebAppIdentityEx2\ASPWebAppIdentityEx2.csproj", "{6C94D884-2F6D-41C7-9837-E11F74EE21AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieBasedAuthExample", "CookieBasedAuthExample\CookieBasedAuthExample.csproj", "{E4C19325-6796-4CF9-8521-15942E329FEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6C94D884-2F6D-41C7-9837-E11F74EE21AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C94D884-2F6D-41C7-9837-E11F74EE21AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C94D884-2F6D-41C7-9837-E11F74EE21AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C19325-6796-4CF9-8521-15942E329FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C19325-6796-4CF9-8521-15942E329FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C19325-6796-4CF9-8521-15942E329FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C19325-6796-4CF9-8521-15942E329FEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
