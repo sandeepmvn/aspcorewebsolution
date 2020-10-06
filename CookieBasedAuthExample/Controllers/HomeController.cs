@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CookieBasedAuthExample.Controllers
 {
-    [Authorize(Roles ="User,Admin")]
+    //(Roles ="User,Admin")
+
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -28,6 +30,7 @@ namespace CookieBasedAuthExample.Controllers
         // [Authorize(Roles ="User,Admin")]
         public IActionResult Privacy()
         {
+            var data = User.Claims.ToList();
             return View();
         }
 

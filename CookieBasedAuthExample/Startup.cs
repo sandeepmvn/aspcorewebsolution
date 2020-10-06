@@ -24,7 +24,12 @@ namespace CookieBasedAuthExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie().AddFacebook(facebookOptions=> {
+
+                facebookOptions.AppId = "962586804253207";
+                facebookOptions.AppSecret = "22e9d262321ccc838172485459598e18";
+            
+            });
             services.AddControllersWithViews();
         }
 

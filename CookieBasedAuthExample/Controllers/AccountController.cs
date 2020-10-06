@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using CookieBasedAuthExample.Models;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CookieBasedAuthExample.Controllers
@@ -55,10 +57,9 @@ namespace CookieBasedAuthExample.Controllers
 
 
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            HttpContext.SignOutAsync();
-
+           await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
 
@@ -66,6 +67,16 @@ namespace CookieBasedAuthExample.Controllers
         public IActionResult AccessDenied(string returnURL)
         {
             return Content("Access is denied");
+        }
+
+
+        public async Task LoginWithFacebook()
+        {
+            await HttpContext.ChallengeAsync(FacebookDefaults.AuthenticationScheme, new AuthenticationProperties()
+            {
+                RedirectUri = "/Home/Privacy"
+
+            }); ;
         }
     }
 }
