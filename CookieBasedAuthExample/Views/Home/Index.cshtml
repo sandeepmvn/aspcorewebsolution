@@ -6,3 +6,79 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+
+@*<div>
+    UserName: <input name="userName" id="userName" class="form-control" />
+    <br />
+    Message: <textarea name="message" id="message" class="form-control"></textarea>
+    <br />
+    <button class="btn btn-primary" id="btnSend">Send message</button>
+    <br />
+    <br />
+    <div class="row">
+        <p>Messages</p>
+        <ul id="messagesList" name="messagesList"></ul>
+    </div>
+</div>*@
+
+
+<div>
+    UserName: <input name="userName" id="userName" class="form-control" />
+    <br />
+    <button class="btn btn-primary" id="btnRegister">Register</button>
+    <br />
+    ToUser
+    <br />
+    <select id="lstUsers" class="form-control"></select><br />
+    <br />
+    Message: <textarea name="message" id="message" class="form-control"></textarea>
+    <br />
+    <button class="btn btn-primary" id="btnSend">Send message</button>
+
+    <div class="row">
+        <p>Messages</p>
+        <ul id="messagesList" name="messagesList"></ul>
+    </div>
+</div>
+
+
+@section scripts{
+    @*<script src="~/js/chat.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnSend').click(function (e) {
+                var usrName = $('#userName').val();
+                var message = $('#message').val();
+                SendMessage(usrName, message);
+            });
+        });
+    </script>*@
+
+<script src="~/js/OneToOneChatApp.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnRegister').click(function () {
+            var usrName = $('#userName').val();
+            if (usrName) {
+                registerUser(usrName);
+            }
+            else {
+                alert("UserName is required")
+            }
+
+        });
+        $('#btnSend').click(function (e) {
+            var message = $('#message').val();
+            var selectedtouser = $('#lstUsers').val();
+            if (message) {
+                sendMessage(message, selectedtouser);
+            } else {
+                alert("message is required")
+            }
+            
+        });
+
+    });
+</script>
+}

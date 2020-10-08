@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CookieBasedAuthExample.Hubs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +32,7 @@ namespace CookieBasedAuthExample
             
             });
             services.AddControllersWithViews();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,12 +53,19 @@ namespace CookieBasedAuthExample
 
             app.UseRouting();
 
+            //app.UseSignalR(options =>
+            //{
+            //    options.MapHub<ChatHub>("/ChatHub");
+            //});
+
             app.UseAuthentication();
             app.UseAuthorization();
 
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ChatHub>("/ChatHub");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
