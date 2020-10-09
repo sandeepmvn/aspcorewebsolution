@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 
 namespace CookieBasedAuthExample.Hubs
 {
     public class ChatHub : Hub
     {
+        private readonly ILogger<ChatHub> _logger;
+        public ChatHub(ILogger<ChatHub> logger)
+        {
+            _logger = logger;
+        }
         public async Task SendMessages(string fromuser, string message)
         {
             await Clients.All.SendAsync("ReceiveMessage", fromuser, message);

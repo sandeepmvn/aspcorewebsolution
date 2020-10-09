@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<label>Expires-After</label>
+<br />
+<cache expires-after="@TimeSpan.FromSeconds(5)">
+    @DateTime.Now.ToLongTimeString()
+</cache>
+
+<br />
+<br />
+<label>Sliding Expiration</label>
+<br />
+<cache expires-sliding="@TimeSpan.FromSeconds(10)">
+    @DateTime.Now.ToLongTimeString()
+</cache>
+
+<br />
+<br />
+<label>Expires On</label>
+<br />
+<cache expires-on="@DateTime.Now.AddDays(1)">
+    <div class="alert alert-info">
+        @DateTime.Now.ToLongTimeString()
+    </div>
+</cache>
+
+<br />
+<label>var by params</label>
+<br />
+<cache vary-by-route="id">
+    <div class="alert alert-light">
+        @DateTime.Now.ToLongTimeString()
+    </div>
+</cache>
+
+<br />
+<label>Working with InMemoryCache</label>
+<div class="alert alert-dark">
+    @ViewBag.CacheTimeValue
+</div>
+

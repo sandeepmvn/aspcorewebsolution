@@ -25,14 +25,25 @@ namespace CookieBasedAuthExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie().AddFacebook(facebookOptions=> {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie().AddFacebook(facebookOptions =>
+            {
 
                 facebookOptions.AppId = "962586804253207";
                 facebookOptions.AppSecret = "22e9d262321ccc838172485459598e18";
-            
+
             });
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options=> {
+
+                options.CacheProfiles.Add("NoCaching", new Microsoft.AspNetCore.Mvc.CacheProfile()
+                {
+                    Duration = 0,
+                    Location = Microsoft.AspNetCore.Mvc.ResponseCacheLocation.None,
+                    NoStore = true
+                });
+            });
             services.AddSignalR();
+            services.AddMemoryCache();
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +63,7 @@ namespace CookieBasedAuthExample
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseResponseCaching();
 
             //app.UseSignalR(options =>
             //{
@@ -68,7 +80,7 @@ namespace CookieBasedAuthExample
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=CacheExample}/{action=Index}/{id?}");
             });
         }
     }
