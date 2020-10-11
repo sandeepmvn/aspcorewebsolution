@@ -73,10 +73,11 @@ namespace CookieBasedAuthExample
             app.UseAuthentication();
             app.UseAuthorization();
 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<ChatHub>("/ChatHub");
+
+                //endpoints.MapDefaultControllerRoute();
 
                 endpoints.MapControllerRoute(
                     name: "default",
