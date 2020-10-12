@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPCoreWebAPPIdentityEx", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPWebAppIdentityEx2", "ASPWebAppIdentityEx2\ASPWebAppIdentityEx2.csproj", "{6C94D884-2F6D-41C7-9837-E11F74EE21AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieBasedAuthExample", "CookieBasedAuthExample\CookieBasedAuthExample.csproj", "{E4C19325-6796-4CF9-8521-15942E329FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookieBasedAuthExample", "CookieBasedAuthExample\CookieBasedAuthExample.csproj", "{E4C19325-6796-4CF9-8521-15942E329FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingExampleWebApp", "RoutingExampleWebApp\RoutingExampleWebApp.csproj", "{B073F356-9856-4CF9-8050-7F9F4D6EA8C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E4C19325-6796-4CF9-8521-15942E329FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C19325-6796-4CF9-8521-15942E329FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4C19325-6796-4CF9-8521-15942E329FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B073F356-9856-4CF9-8050-7F9F4D6EA8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B073F356-9856-4CF9-8050-7F9F4D6EA8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B073F356-9856-4CF9-8050-7F9F4D6EA8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B073F356-9856-4CF9-8050-7F9F4D6EA8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
