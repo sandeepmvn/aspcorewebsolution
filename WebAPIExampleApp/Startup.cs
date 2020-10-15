@@ -28,9 +28,36 @@ namespace WebAPIExampleApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddNewtonsoftJson();
 
             services.AddDbContext<WebAPIExampleAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebAPIExampleAppContext")));
+            services.AddApiVersioning(x =>
+            {
+                x.DefaultApiVersion = new ApiVersion(1, 0);
+                x.AssumeDefaultVersionWhenUnspecified = true;
+                x.ReportApiVersions = true;
+            });
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+                    Title = "HTTP Web API Demo",
+                    Version = "v1",
+                    Description = "The is a demo of how to use Swagger in Web API"
+                });
+
+
+                options.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+                    Title = "HTTP Web API Demo V2",
+                    Version = "v2",
+                    Description = "The is a demo of how to use Swagger in Web API V2"
+                });
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +71,12 @@ namespace WebAPIExampleApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger().UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API V2");
+            });
 
             app.UseAuthorization();
 

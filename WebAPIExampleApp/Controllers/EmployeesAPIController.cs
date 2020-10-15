@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using WebAPIExampleApp.Data;
 using WebAPIExampleApp.Models;
 
@@ -20,6 +23,34 @@ namespace WebAPIExampleApp.Controllers
         {
             _context = context;
         }
+
+        //[HttpGet("/GetEmp")]
+        //public HttpResponseMessage GetEmp()
+        //{
+        //    var list = new
+        //    {
+        //        id=1,
+        //        name="schott"
+        //    };
+
+        //    return new HttpResponseMessage()
+        //    {
+        //        StatusCode = System.Net.HttpStatusCode.OK,
+        //        Content = new StringContent(JsonConvert.SerializeObject(list))
+        //    };
+        //}
+
+
+        //public System.Web.Http.IHttpActionResult GetEmps()
+        //{
+        //    return (System.Web.Http.IHttpActionResult)Ok();
+        //}
+
+
+        //public List<Employee> GetEmployees()
+        //{
+        //    return _context.Employee.ToList();
+        //}
 
         // GET: api/EmployeesAPI
         [HttpGet]
@@ -47,6 +78,7 @@ namespace WebAPIExampleApp.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> PutEmployee(int id, Employee employee)
         {
             if (id != employee.EmpId)

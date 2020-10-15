@@ -192,6 +192,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\Products\Controllers\" />
+    <Folder Include="Areas\Products\Data\" />
+    <Folder Include="Areas\Products\Models\" />
+    <Folder Include="Areas\Products\Views\" />
     <Folder Include="wwwroot\NewFolder\" />
     <Folder Include="wwwroot\test\JS\" />
     <Folder Include="wwwroot\test\CSS\" />
