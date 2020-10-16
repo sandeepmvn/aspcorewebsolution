@@ -24,6 +24,11 @@ namespace AreasExampleProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.Configure<IISOptions>(options =>
+            //{
+            //    options.ForwardClientCertificate = false;
+            //    options.AutomaticAuthentication = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
